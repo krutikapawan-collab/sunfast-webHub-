@@ -1,0 +1,141 @@
+/* SunFast AI Tools */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f4f7fb;
+color:#222;
+}
+
+header{
+background:#0d6efd;
+color:#fff;
+text-align:center;
+padding:20px;
+}
+
+header h1{
+font-size:32px;
+margin-bottom:5px;
+}
+
+header p{
+font-size:16px;
+}
+
+.container{
+max-width:900px;
+margin:30px auto;
+background:#fff;
+padding:25px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+h2{
+text-align:center;
+margin-bottom:20px;
+}
+
+textarea{
+width:100%;
+height:220px;
+padding:15px;
+font-size:17px;
+border:2px solid #ddd;
+border-radius:10px;
+resize:vertical;
+outline:none;
+}
+
+textarea:focus{
+border-color:#0d6efd;
+}
+
+.buttons{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin-top:20px;
+justify-content:center;
+}
+
+button{
+padding:12px 18px;
+border:none;
+border-radius:8px;
+background:#0d6efd;
+color:#fff;
+cursor:pointer;
+font-size:15px;
+transition:.3s;
+}
+
+button:hover{
+background:#084298;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+gap:15px;
+margin-top:25px;
+}
+
+.card{
+background:#f8f9fa;
+padding:18px;
+border-radius:10px;
+text-align:center;
+box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+.card h3{
+font-size:28px;
+color:#0d6efd;
+margin-bottom:8px;
+}
+
+.card p{
+font-size:15px;
+}
+
+.ad-box{
+margin:20px auto;
+max-width:900px;
+background:#ececec;
+padding:20px;
+text-align:center;
+border:2px dashed #bbb;
+border-radius:10px;
+}
+
+footer{
+margin-top:30px;
+background:#111;
+color:#fff;
+text-align:center;
+padding:20px;
+}
+
+@media(max-width:600px){
+
+header h1{
+font-size:26px;
+}
+
+.container{
+margin:15px;
+padding:15px;
+}
+
+button{
+width:100%;
+}
+
+}
