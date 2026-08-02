@@ -94,3 +94,58 @@ downloadBtn.addEventListener("click", () => {
 
 // Initialize
 updateStats();
+
+const textInput = document.getElementById("textInput");
+
+if (textInput) {
+
+const wordCount = document.getElementById("wordCount");
+const charCount = document.getElementById("charCount");
+const charNoSpace = document.getElementById("charNoSpace");
+const sentenceCount = document.getElementById("sentenceCount");
+const paragraphCount = document.getElementById("paragraphCount");
+const readingTime = document.getElementById("readingTime");
+
+function updateCounts() {
+
+const text = textInput.value;
+
+charCount.textContent = text.length;
+
+charNoSpace.textContent = text.replace(/\s/g,"").length;
+
+const words = text.trim() === "" ? 0 : text.trim().split(/\s+/).length;
+wordCount.textContent = words;
+
+const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0).length;
+sentenceCount.textContent = sentences;
+
+const paragraphs = text.split(/\n+/).filter(p => p.trim().length > 0).length;
+paragraphCount.textContent = paragraphs;
+
+readingTime.textContent = Math.ceil(words / 200) + " Min";
+}
+
+textInput.addEventListener("input", updateCounts);
+
+document.getElementById("copyBtn").onclick = () => {
+navigator.clipboard.writeText(textInput.value);
+alert("Copied!");
+};
+
+document.getElementById("clearBtn").onclick = () => {
+textInput.value = "";
+updateCounts();
+};
+
+document.getElementById("downloadBtn").onclick = () => {
+const blob = new Blob([textInput.value], {type:"text/plain"});
+const link = document.createElement("a");
+link.href = URL.createObjectURL(blob);
+link.download = "text.txt";
+link.click();
+};
+
+updateCounts();
+
+}
