@@ -149,3 +149,56 @@ link.click();
 updateCounts();
 
 }
+// ================= PASSWORD GENERATOR =================
+
+function generatePassword() {
+
+let length = parseInt(document.getElementById("length").value);
+
+let chars = "";
+
+if (document.getElementById("uppercase").checked)
+chars += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+if (document.getElementById("lowercase").checked)
+chars += "abcdefghijklmnopqrstuvwxyz";
+
+if (document.getElementById("numbers").checked)
+chars += "0123456789";
+
+if (document.getElementById("symbols").checked)
+chars += "!@#$%^&*()_+-=[]{}|;:,.<>?";
+
+if (chars === "") {
+alert("Select at least one option.");
+return;
+}
+
+let password = "";
+
+for (let i = 0; i < length; i++) {
+
+password += chars.charAt(
+Math.floor(Math.random() * chars.length)
+);
+
+}
+
+document.getElementById("password").value = password;
+
+}
+
+function copyPassword() {
+
+const pass = document.getElementById("password");
+
+if (pass.value === "") {
+alert("Generate password first.");
+return;
+}
+
+navigator.clipboard.writeText(pass.value);
+
+alert("Password Copied!");
+
+}
